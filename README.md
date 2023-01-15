@@ -10,9 +10,9 @@ Click on a contact to view the groups listed to that contact.
 ##GroupList Click:
 ![clickGroupToViewListedContacts](https://user-images.githubusercontent.com/68903153/212553770-221c2c49-aacd-4683-ab94-4400c5931392.png)
 Click on a group to view the contacts listed to that group.
-##Add Contact:
+##Add a new Contact:
 ![addContact](https://user-images.githubusercontent.com/68903153/212553810-d8f9ad12-9638-4aec-88a3-cd1ccd75ad5f.png)
 Add a new contact.
-##Add Group:
+##Add a new Group:
 ![addGroup](https://user-images.githubusercontent.com/68903153/212553873-816b3e81-c28e-4ae0-843f-2c708ef1cd05.png)
 Add a new group.
