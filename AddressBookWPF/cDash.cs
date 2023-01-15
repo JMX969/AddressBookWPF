@@ -34,37 +34,13 @@ namespace AddressBookWPF
         {
             selectedGroupCn = databaseSQL.loadContactsFromGroup(groupId);
         }
-        public void addContact(ContactClass newContact)
-        {
-            databaseSQL.saveContact(newContact);
-            setLists();
-        }
+
         public void deleteContact(ContactClass delContact)
         {
             databaseSQL.deleteContact(delContact);
             setLists();
         }
-        public void updateContact(ContactClass upContact)
-        {
-            databaseSQL.updateContact(upContact);
-            setLists();
-        }
 
-        public void addGroup(ContactGroup addGroup)
-        {
-            databaseSQL.saveGroup(addGroup);
-            setLists();
-        }
-        public void updateGroup(ContactGroup upGroup)
-        {
-            databaseSQL.updateGroup(upGroup);
-            setLists();
-        }
-        public void deleteGroup(ContactGroup delGroup)
-        {
-            databaseSQL.deleteGroup(delGroup);
-            setLists();
-        }
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

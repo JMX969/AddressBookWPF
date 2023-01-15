@@ -8,24 +8,10 @@
         Title="wDash" Height="450" Width="800" Loaded="Window_Loaded" >
     <Grid>
         
-        <Button Margin="0,0,400,390" Content="Contacts" Click="Button_Click" ></Button>
-        <Button Margin="405,0,0,390" Content="Groups"  Click="Button_Click_1"></Button>
+        <Button Margin="0,0,400,341" Content="Contacts" Click="Button_Click" ></Button>
+        <Button Margin="405,0,0,341" Content="Groups"  Click="Button_Click_1"></Button>
 
-        <Grid Margin="0,50,0,350" RenderTransformOrigin="0.506,0.304" MaxHeight="250" MinHeight="30">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="30"/>
-
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-
-            </Grid.RowDefinitions>
-            
-        </Grid>
+        
         <Grid x:Name="gridContact" Visibility="Visible"  Margin="0,98,0,0">
 
             <Grid.ColumnDefinitions>
@@ -40,7 +26,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <DockPanel>
-                                    <Image x:Name="imgAdd"  MouseRightButtonDown="imgAdd_MouseRightButtonDown" Source="/AddressBookWPF;component/Image/add.png" Width="22" MouseUp="imgAdd_MouseUp"/>
+                                    <Image x:Name="imgAdd" Source="/AddressBookWPF;component/Image/add.png" Width="22" MouseUp="imgAdd_MouseUp"/>
                                     <Image x:Name="imgEdit" Source="/AddressBookWPF;component/Image/EditButton.png" Width="22" MouseUp="imgEdit_MouseUp" />
                                     <Image x:Name="imgDel" Source="/AddressBookWPF;component/Image/RemoveButton.png"  Width="22" MouseUp="imgDel_MouseUp"/>
                                     <Image x:Name="imgGroupContacts" Source="/AddressBookWPF;component/Image/DependencyButton.png"  Width="22" MouseUp="imgGroup_MouseUp"/>

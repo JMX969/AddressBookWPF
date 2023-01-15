@@ -12,13 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+//
+//
+//Test AddressBookWPF version1
+//This form is incomplete and still under development
+//Startup project = wDash.xaml
 
 namespace AddressBookWPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -29,14 +31,9 @@ namespace AddressBookWPF
 
         private void ViewAll_Click(object sender, RoutedEventArgs e)
         {
-            //ContactClass cc = new ContactClass();
-            //cc = databaseSQL.loadContacts();
-            //ContactList.ItemsSource = cc;
 
             ContactList.ItemsSource = databaseSQL.loadContacts();
             GroupList.ItemsSource = databaseSQL.loadContactsInGroups("2");
-
-
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
@@ -45,12 +42,6 @@ namespace AddressBookWPF
             try
             {
                 if (cc.ContactId != null)
-                //cc.ContactId = tbContactId.Text;
-                //cc.firstName= tbFirstName.Text;
-                //cc.lastName= tbLastName.Text;
-                //cc.email= tbEmail.Text;
-                //cc.city= tbCity.Text;
-
                 databaseSQL.updateContact(cc);
                 ContactList.ItemsSource = databaseSQL.loadContacts();
             }
@@ -62,7 +53,6 @@ namespace AddressBookWPF
             ContactClass cc = new ContactClass();
             try
             {
-                //cc.ContactId = tbContactId.Text;
                 cc.firstName= tbFirstName.Text;
                 cc.lastName= tbLastName.Text;
                 cc.number= tbNumber.Text;
@@ -220,17 +210,11 @@ namespace AddressBookWPF
             var item = sender as ListViewItem;
             if (item != null && item.IsSelected)
             {
-                //GroupList groupList= new GroupList();
-                //databaseSQL dbSql = new databaseSQL();
-                //groupList = databaseSQL.loadContactsInGroups("0");
-
                 List<GroupList> gl = new List<GroupList>();
                 gl = databaseSQL.loadContactsInGroups("0");
 
-                //GroupList.ItemsSource = databaseSQL.loadContactsInGroups("0");
                 GroupList.ItemsSource = gl;
-                
-                //tbGroupId.Text = GroupList.Items.group;
+
             }
             
         }
@@ -240,9 +224,7 @@ namespace AddressBookWPF
             var item = sender as ListViewItem;
             if (item != null && item.IsSelected)
             {
-                //List<GroupList> gl = new List<GroupList>();
-                //gl = databaseSQL.loadContactsInGroups("0");
-                //ContactList.ItemsSource =  
+
             }
         }
 
@@ -263,9 +245,5 @@ namespace AddressBookWPF
             }catch (Exception ex) { MessageBox.Show("Make sure both contact and group are selected"); }
         }
 
-        //public void searchContactFName(ContactClass cc)
-        //{
-
-        //}
     }
 }

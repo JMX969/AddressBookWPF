@@ -78,10 +78,6 @@ namespace AddressBookWPF
             grdList.ItemsSource = null;
         }
 
-        private void imgAdd_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
         private void refreshData()
         {
 
@@ -127,15 +123,7 @@ namespace AddressBookWPF
 
         private void imgGroup_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //ContactGroup cg = new ContactGroup();
-            //cg = grdName.SelectedItem as ContactGroup;
-            //AddContactToGroups actg = new AddContactToGroups(cg);
-            //actg.crudContact.Text = "Add Contact to Groups";
-
-            //actg.ShowDialog();
-            //refreshData();
             ContactClass cc = new ContactClass();
-            //ContactGroup cg = grdName.SelectedItem as ContactGroup;
             cc = grdName.SelectedItem as ContactClass;
             addGroupsToContact agtc = new addGroupsToContact(cc);
 
@@ -170,8 +158,7 @@ namespace AddressBookWPF
 
         private void imgDelGroup_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //if(MessageBox.Show())
-            MessageBox.Show("Are you sure you want to delete?");
+            //MessageBox.Show("Are you sure you want to delete?");
             ContactGroup cg = new ContactGroup();
             cg = grdList.SelectedItem as ContactGroup;
             databaseSQL.deleteGroup(cg);
