@@ -1,0 +1,50 @@
+﻿<Window x:Class="AddressBookWPF.AddContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBookWPF"
+        mc:Ignorable="d"
+        Title="AddContact" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="crudContact" Grid.Column="2" Grid.Row="1" FontSize="28" Text="Add Contact to AddressBook"/>
+        <StackPanel Name="addStackPanel" Grid.Column="2" Grid.Row="3"  Margin="5,5">
+            
+            <TextBlock Text="FirstName:"/>
+            <TextBox x:Name="tbFirstName" Width="150"  />
+            <TextBlock Text="LastName:"/>
+            <TextBox x:Name="tbLastName" Width="150" />
+            <TextBlock Text="Number:"/>
+            <TextBox x:Name="tbNumber" Width="150" />
+            <TextBlock Text="Email:"/>
+            <TextBox x:Name="tbEmail" Width="150" />
+            <TextBlock Text="City:"/>
+            <TextBox x:Name="tbCity" Width="150" />
+            <TextBlock Text="Province:"/>
+            <TextBox x:Name="tbProvince" Width="150" />
+            <TextBlock Text="Street:"/>
+            <TextBox x:Name="tbStreet" Width="150" />
+            <TextBlock Text="zipCode:"/>
+            <TextBox x:Name="tbZipCode" Width="150" />
+            <Button x:Name="addC" Content="Add Contact" Click="addC_Click"/>
+            <Button x:Name="updateC" Content="Update Contact" Click="updateC_Click"/>
+            <Button x:Name="cancelC" Content="Cancel" Click="cancelC_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

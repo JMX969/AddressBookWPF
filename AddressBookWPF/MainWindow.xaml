@@ -1,0 +1,160 @@
+﻿<Window x:Class="AddressBookWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBookWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="auto" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" Text="AddressBook"/>
+        
+        <TextBlock Text="AddressBook" Grid.Column="1" Grid.Row="2"/>
+        <StackPanel Grid.Column="1" Grid.Row="3" Margin="5,5">
+            <Button x:Name="ViewAll" Content="View All Contacts" Click="ViewAll_Click"/>
+            <Button x:Name="AddContact" Content="Add Contact" Click="AddContact_Click"/>
+            <Button x:Name="Update" Content="Update Contact" Click="Update_Click"/>
+            <Button x:Name="DeleteContact" Content="Delete Contact" Click="DeleteContact_Click"/>
+            <TextBlock Text="Search:"/>
+            <TextBlock Text="FirstName:"/>
+            <TextBox x:Name="searchFName" Width="150" TextChanged="searchFName_TextChanged"/>
+            <TextBlock Text="LastName:"/>
+            <TextBox x:Name="searchLName" Width="150" TextChanged="searchLName_TextChanged"/>
+
+
+        </StackPanel>
+
+
+        <ListView Grid.Column="3" Grid.Row="3" Name="ContactList" PreviewMouseLeftButtonDown="ContactList_PreviewMouseLeftButtonDown">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="180"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="textID" Grid.Row="0" Text="{Binding ContactId}" Margin="3,0"/>
+                            <TextBlock Name="textFirstName" Grid.Row="0" Text="{Binding firstName}"/>
+                        </StackPanel>
+
+                        <Border Grid.Column="1">
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Name="textLastName" Text="{Binding lastName}"/>
+                                <TextBlock Name="textNumber" Text="{Binding number}"/>
+                                <TextBlock Name="textEmail" Text="{Binding email}"/>
+                                <TextBlock Name="textCity" Text="{Binding city}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Grid.Column="3" Grid.Row="6" Name="GroupList" PreviewMouseLeftButtonDown="GroupList_PreviewMouseLeftButtonDown">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="180"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="textGroupID" Text="{Binding groupId}" Margin="3,0"/>
+                            <TextBlock Name="textGroupName" Text="{Binding groupName}"/>
+                        </StackPanel>
+
+                        <Border Grid.Column="1">
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Name="textGroupDescription" Text="{Binding groupDescription}"/>
+                                
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="2"  Margin="5,5">
+            <RadioButton Name="radAdd" Content="Add" Click="radAdd_Click" Padding="5,0"/>
+            <RadioButton Name="radUpdate" Content="Update" Click="radUpdate_Click" Padding="5,0"/>
+            <RadioButton Name="radDelete" Content="Delete" Click="radDelete_Click" Padding="5,0"/>
+        </StackPanel>
+        <StackPanel Name="crudPanel" Grid.Column="2" Grid.Row="3"  Margin="5,5">
+            <TextBlock Text="ContactId:"/>
+            <TextBox x:Name="tbContactId" IsReadOnly="True" Width="150" Text="{Binding ElementName=ContactList, Path=SelectedItem.ContactId}"/>
+            <TextBlock Text="FirstName:"/>
+            <TextBox x:Name="tbFirstName" Width="150" Text="{Binding ElementName=ContactList, Path=SelectedItem.firstName}"/>
+            <TextBlock Text="LastName:"/>
+            <TextBox x:Name="tbLastName" Width="150" Text="{Binding ElementName=ContactList, Path=SelectedItem.lastName}"/>
+            <TextBlock Text="Number:"/>
+            <TextBox x:Name="tbNumber" Width="150" Text="{Binding ElementName=ContactList, Path=SelectedItem.number}"/>
+            <TextBlock Text="Email:"/>
+            <TextBox x:Name="tbEmail" Width="150" Text="{Binding ElementName=ContactList, Path=SelectedItem.email}"/>
+            <TextBlock Text="City:"/>
+            <TextBox x:Name="tbCity" Width="150" Text="{Binding ElementName=ContactList, Path=SelectedItem.city}"/>
+        </StackPanel>
+        <TextBlock Text="Groups" Grid.Column="1" Grid.Row="5"/>
+        <StackPanel Grid.Column="1" Grid.Row="6"  Margin="5,5">
+            <TextBlock Text="Groups"/>
+            <Button x:Name="ViewAllGroups" Content="View All Groups" Click="ViewAllGroups_Click"/>
+            <Button x:Name="AddGroup" Content="Add Group" Click="AddGroup_Click"/>
+            <Button x:Name="UpdateGroup" Content="Update Group" Click="UpdateGroup_Click"/>
+            <Button x:Name="DeleteGroups" Content="Delete Group" Click="DeleteGroups_Click"/>
+            
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="4" Margin="5,5">
+            <Button x:Name="addContactToGroup" Content="Add Contact to Group" Click="addContactToGroup_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="5"  Margin="5,5">
+            <RadioButton Name="radGroupAdd" Content="Add" Click="radGroupAdd_Click" Padding="5,0"/>
+            <RadioButton Name="radGroupUpdate" Content="Update" Click="radGroupUpdate_Click" Padding="5,0"/>
+            <RadioButton Name="radGroupDelete" Content="Delete" Click="radGroupDelete_Click" Padding="5,0"/>
+        </StackPanel>
+            
+        <StackPanel Grid.Column="2" Grid.Row="6"  Margin="5,5">
+            
+                
+            <TextBlock Text="GroupID:"/>
+            <TextBox x:Name="tbGroupId" Width="150" Text="{Binding ElementName=GroupList, Path=SelectedItem.groupId}"/>
+            <TextBlock Text="GroupName:"/>
+            <TextBox x:Name="tbGroupName" Width="150" Text="{Binding ElementName=GroupList, Path=SelectedItem.groupName}"/>
+            <TextBlock Text="GroupDescription:"/>
+            <TextBox x:Name="tbGroupdesc" Width="150" Text="{Binding ElementName=GroupList, Path=SelectedItem.groupDescription}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

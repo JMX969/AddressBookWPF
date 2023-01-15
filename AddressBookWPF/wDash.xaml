@@ -1,0 +1,89 @@
+﻿<Window x:Class="AddressBookWPF.wDash"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBookWPF"
+        mc:Ignorable="d"
+        Title="wDash" Height="450" Width="800" Loaded="Window_Loaded" >
+    <Grid>
+        
+        <Button Margin="0,0,400,390" Content="Contacts" Click="Button_Click" ></Button>
+        <Button Margin="405,0,0,390" Content="Groups"  Click="Button_Click_1"></Button>
+
+        <Grid Margin="0,50,0,350" RenderTransformOrigin="0.506,0.304" MaxHeight="250" MinHeight="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="30"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            
+        </Grid>
+        <Grid x:Name="gridContact" Visibility="Visible"  Margin="0,98,0,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="400" />
+            </Grid.ColumnDefinitions>
+
+            <DataGrid x:Name="grdName" IsReadOnly="True"  AutoGenerateColumns="False" Grid.Column="0" SelectionChanged="grdName_SelectionChanged" >
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn Header="IC" Width="SizeToCells"
+                        >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Image x:Name="imgAdd"  MouseRightButtonDown="imgAdd_MouseRightButtonDown" Source="/AddressBookWPF;component/Image/add.png" Width="22" MouseUp="imgAdd_MouseUp"/>
+                                    <Image x:Name="imgEdit" Source="/AddressBookWPF;component/Image/EditButton.png" Width="22" MouseUp="imgEdit_MouseUp" />
+                                    <Image x:Name="imgDel" Source="/AddressBookWPF;component/Image/RemoveButton.png"  Width="22" MouseUp="imgDel_MouseUp"/>
+                                    <Image x:Name="imgGroupContacts" Source="/AddressBookWPF;component/Image/DependencyButton.png"  Width="22" MouseUp="imgGroup_MouseUp"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="contactID" Binding="{Binding ContactId}"/>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding firstName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding lastName}"/>
+                    <DataGridTextColumn Header="Number" Binding="{Binding number}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding email}"/>
+                    <DataGridTextColumn Header="City" Binding="{Binding city}"/>
+                    <DataGridTextColumn Header="Province" Binding="{Binding province}"/>
+                    <DataGridTextColumn Header="Street" Binding="{Binding street}"/>
+                    <DataGridTextColumn Header="zipCode" Binding="{Binding zipCode}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="grdList" IsReadOnly="True"  Grid.Column="1" SelectionChanged="grdList_SelectionChanged">
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn Header="IC" Width="SizeToCells"
+                            IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Image x:Name="imgAddGroup" Source="/AddressBookWPF;component/Image/add.png" Width="22" MouseUp="imgAddGroup_MouseUp"/>
+                                    <Image x:Name="imgEditGroup" MouseUp="imgEditGroup_MouseUp" Source="/AddressBookWPF;component/Image/EditButton.png" Width="22" />
+                                    <Image x:Name="imgDelGroup" MouseUp="imgDelGroup_MouseUp" Source="/AddressBookWPF;component/Image/RemoveButton.png"  Width="22"/>
+                                    <Image x:Name="imgContactGroup" MouseUp="imgContactGroup_MouseUp" Source="/AddressBookWPF;component/Image/DependencyButton.png"  Width="22"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+        </Grid>
+
+    </Grid>
+
+</Window>
