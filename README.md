@@ -1,11 +1,11 @@
 # AddressBookWPF
 ## Basic fundmentals of CRUD functions using C# WPF
 This project is developed to demonstrate the basics of CRUD functions using C# WPF with an SqLite Database. This project test the basic functionality of SQL CRUD Functions: 
--   Create Address
--   Read Address
--   Update Address
--   Delete Address
-
+-   Create Contact
+-   Read Contact
+-   Update Contact
+-   Delete Contact
+The same functionality is also applied to Groups
 ##Main View:
 ![mainView](https://user-images.githubusercontent.com/68903153/212553688-6411aeb1-7195-453b-b3dd-ad5f44258d69.png)
 Both Contacts and Groups are listed.
